@@ -3,10 +3,10 @@ package info1.sae.test;
 import info1.sae.RecherchePuissance4;
 public class RecherchePuissance4Test {
 	public static void main(String[] args) {
-		//rechercheVerticaleTest();
-		//rechercheDiagonaleBasGaucheHautDroiteTest();
-		//rechercheHorizontaleTest();
-		//rechercheDiagonaleBasDroiteHautGaucheTest();
+		rechercheVerticaleTest();
+		rechercheDiagonaleBasGaucheHautDroiteTest();
+		rechercheHorizontaleTest();
+		rechercheDiagonaleBasDroiteHautGaucheTest();
 		PasDePuissanceTest();
 	}
 	
@@ -63,7 +63,7 @@ public class RecherchePuissance4Test {
 										{"jaune","jaune","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "}};
-		final int[] TESTPION4 = {3,1};
+		final int[] TESTPION4 = {1,3};
 		final String TESTCOULEUR4 = "jaune";
 		if(!RecherchePuissance4.recherche(TEST4LISTE, TESTCOULEUR4, TESTPION4)) {
 			throw new IllegalArgumentException("Erreur lors du test de la methode rechercheDiagonaleBasDroiteHautGauche");
@@ -71,16 +71,16 @@ public class RecherchePuissance4Test {
 	}
 	
 	public static void PasDePuissanceTest() {
-		final String[][] TEST1LISTE =  {{"jaune","rouge","rouge","jaune","rouge","jaune"},
+		final String[][] TEST5LISTE =  {{"jaune","rouge","rouge","jaune","rouge","jaune"},
 										{"rouge","jaune","jaune","jaune","vide ","vide "},
 										{"jaune","rouge","rouge","rouge","vide ","vide "},
 										{"rouge","jaune","jaune","rouge","rouge","vide "},
 										{"jaune","jaune","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "}};
-		final int[] TEST1PION = {3,1};
-		final String TEST1COULEUR = "jaune";
-		if(RecherchePuissance4.recherche(TEST1LISTE, TEST1COULEUR, TEST1PION)) {
+		final int[] TEST5PION = {3,1};
+		final String TEST5COULEUR = "jaune";
+		if(RecherchePuissance4.recherche(TEST5LISTE, TEST5COULEUR, TEST5PION)) {
 			throw new IllegalArgumentException("Erreur lors du test avec un tableau ne contenant pas de puissance");
 		}
 	}

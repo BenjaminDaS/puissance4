@@ -1,31 +1,31 @@
 package info1.sae;
 
 public class RecherchePuissance4 {
-	/** recherche à chaque tour via un import de cette méthode si le jeu possède 
-	 * quatre pions de la même couleur aligné
-     * @param tableau 		tableau contenant les couleurs des pions placés à leurs positions
-     * @param couleur       couleur du dernier pion placé
-     * @param pion        	position du dernier pion placé
-     * @return 				un boolean true si il existe quatre pions de la même couleur
-     * 						alignés
+	/** recherche Ã  chaque tour via un import de cette mÃ©thode si le jeu possÃ¨de 
+	 * quatre pions de la mÃªme couleur alignÃ©
+     * @param tableau 		tableau contenant les couleurs des pions placÃ©s Ã  leurs positions
+     * @param couleur       couleur du dernier pion placÃ©
+     * @param pion        	position du dernier pion placÃ©
+     * @return 				un boolean true si il existe quatre pions de la mÃªme couleur
+     * 						alignÃ©s
      */
 	public static boolean recherche(String[][] tableau, String couleur, int[] pionTest) {
 		
-		//if (rechercheVerticale(tableau, couleur, pionTest)) {
-		//	return true;
-		//} else if (rechercheDiagonaleBasGaucheHautDroite(tableau, couleur, pionTest)) {
-		//	return true;
-		//} else if (rechercheHorizontale(tableau, couleur, pionTest)) {
-		//	return true;
-		//}else 
-		if (rechercheDiagonaleBasDroiteHautGauche(tableau, couleur, pionTest)) {
+		if (rechercheVerticale(tableau, couleur, pionTest)) {
+			return true;
+		} else if (rechercheDiagonaleBasGaucheHautDroite(tableau, couleur, pionTest)) {
+			return true;
+		} else if (rechercheHorizontale(tableau, couleur, pionTest)) {
+			return true;
+		}else if (rechercheDiagonaleBasDroiteHautGauche(tableau, couleur, pionTest)) {
 			return true;
 		} else {
 			return false;
 		}
     }
     
-    public static boolean rechercheVerticale(String[][] tableau, String couleur,int[] pion) {
+    public static boolean rechercheVerticale(String[][] tableau, String couleur,int[] pionTest) {
+    	int[] pion = pionTest;
     	boolean puissance4 = false;
     	if (pion[1] >= 3) {
 	    	puissance4 = tableau[pion[0]][pion[1]-1].equals(couleur);
@@ -39,13 +39,14 @@ public class RecherchePuissance4 {
     	
     }
     
-    public static boolean rechercheDiagonaleBasGaucheHautDroite(String[][] tableau, String couleur,int[] pion) {
+    public static boolean rechercheDiagonaleBasGaucheHautDroite(String[][] tableau, String couleur,int[] pionTest) {
+    	int[] pion = pionTest;
     	boolean puissance4 = true;
     	while(pion[0] != 0 && pion[1] != 0 && tableau[pion[0]-1][pion[1]-1].equals(couleur)) {
     		pion[0] -= 1;
     		pion[1] -= 1;
     	}
-    	for (int i = 0; i < 3 && pion[0] != 6 && pion[1] != 5;i ++) {
+    	for (int i = 0; i < 3 && pion[0]+i+1 <= 6 && pion[1]+i+1 <= 5;i ++) {
     		if (tableau[pion[0]+i+1][pion[1]+i+1].equals(couleur)) {
     			puissance4 &= true;
     		} else {
@@ -55,12 +56,13 @@ public class RecherchePuissance4 {
     	return puissance4;
     }
     
-    public static boolean rechercheHorizontale(String[][] tableau, String couleur,int[] pion) {
+    public static boolean rechercheHorizontale(String[][] tableau, String couleur,int[] pionTest) {
+    	int[] pion = pionTest;
     	boolean puissance4 = true;
     	while(pion[0] != 0 && tableau[pion[0]-1][pion[1]].equals(couleur)) {
     		pion[0] -= 1;
     	}
-    	for (int i = 0; i < 3 && pion[0] != 6;i ++) {
+    	for (int i = 0; i < 3 && pion[0]+1 <= 6;i ++) {
     		if (tableau[pion[0]+1][pion[1]].equals(couleur)) {
     			pion[0] += 1;
     			puissance4 &= true;
@@ -71,8 +73,8 @@ public class RecherchePuissance4 {
     	return puissance4;
     }
     
-    public static boolean rechercheDiagonaleBasDroiteHautGauche(String[][] tableau, String couleur,int[] pion) {
-    	System.out.println(pion[0] + " " + pion[1]);
+    public static boolean rechercheDiagonaleBasDroiteHautGauche(String[][] tableau, String couleur,int[] pionTest) {
+    	int[] pion = pionTest;
     	boolean puissance4 = true;
     	while(pion[0] != 6 && pion[1] != 0 && tableau[pion[0]+1][pion[1]-1].equals(couleur)) {
     		pion[0] += 1;
