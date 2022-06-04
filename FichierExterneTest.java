@@ -7,8 +7,6 @@ import info1.sae.FichierExterne;
 
 public class FichierExterneTest {
 	public static void main(String[] args) throws IOException {
-		System.out.println(FichierExterne.estSauvegardeExistante());
-		FichierExterne.creerFichierSauvegarde();
 		sauvegarderTest();
 	}
 	
@@ -22,7 +20,16 @@ public class FichierExterneTest {
 				{ "vide", "vide", "vide", "vide", "vide", "vide"},
 				{ "vide", "vide", "vide", "vide", "vide", "vide"}};
 		FichierExterne.sauvegarder("jaune", "jvj", "Benjamin Simon",TESTLISTE1);
-		FichierExterne.recupererDonneeSauvegarde();
+		
+		
+		if (!FichierExterne.recupererDonneeSauvegarde().equals("jaune jvj Benjamin"
+				+ " Simon jaune rouge rouge jaune rouge jaune rouge jaune jaune"
+				+ " jaune vide vide jaune rouge jaune rouge vide vide rouge jaune"
+				+ " jaune rouge rouge vide jaune jaune vide vide vide vide vide"
+				+ " vide vide vide vide vide vide vide vide vide vide vide ")) {
+			throw new IllegalArgumentException("Erreur lors du test de la "
+					+ "Sauvegarde et de la récupération d'un fichier");
+		}
 	}
 	
 	

@@ -11,7 +11,7 @@ public class RecherchePuissance4Test {
 	}
 	
 	public static void rechercheVerticaleTest() {
-		final String[][] TESTLISTE1 =  {{"jaune","rouge","rouge","rouge","rouge","jaune"},
+		final String[][] TESTLISTE1 =  {{"jaune","rouge","rouge","rouge","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "},
@@ -48,7 +48,7 @@ public class RecherchePuissance4Test {
 										{"rouge","jaune","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "},
 										{"vide ","vide ","vide ","vide ","vide ","vide "}};
-		final int[] TESTPION3 = {2,1};
+		final int[] TESTPION3 = {4,1};
 		final String TESTCOULEUR3 = "jaune";
 		if(!RecherchePuissance4.recherche(TESTLISTE3, TESTCOULEUR3, TESTPION3)) {
 			throw new IllegalArgumentException("Erreur lors du test de la methode rechercheHorizontale");

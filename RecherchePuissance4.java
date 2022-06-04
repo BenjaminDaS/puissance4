@@ -25,7 +25,7 @@ public class RecherchePuissance4 {
     }
     
     public static boolean rechercheVerticale(String[][] tableau, String couleur,int[] pionTest) {
-    	int[] pion = pionTest;
+    	int[] pion = pionTest.clone();
     	boolean puissance4 = false;
     	if (pion[1] >= 3) {
 	    	puissance4 = tableau[pion[0]][pion[1]-1].equals(couleur);
@@ -40,42 +40,44 @@ public class RecherchePuissance4 {
     }
     
     public static boolean rechercheDiagonaleBasGaucheHautDroite(String[][] tableau, String couleur,int[] pionTest) {
-    	int[] pion = pionTest;
-    	boolean puissance4 = true;
+    	int[] pion = pionTest.clone();
+    	boolean puissance4 = false;
     	while(pion[0] != 0 && pion[1] != 0 && tableau[pion[0]-1][pion[1]-1].equals(couleur)) {
     		pion[0] -= 1;
     		pion[1] -= 1;
     	}
-    	for (int i = 0; i < 3 && pion[0]+i+1 <= 6 && pion[1]+i+1 <= 5;i ++) {
-    		if (tableau[pion[0]+i+1][pion[1]+i+1].equals(couleur)) {
-    			puissance4 &= true;
+    	for (int i = 0; i < 3 && pion[0] <= 6 && pion[1] <= 5;i ++) {
+    		if (tableau[pion[0]][pion[1]].equals(couleur)) {
+    			puissance4 = true;
+    			pion[0] += 1;
+    			pion[1] += 1;
     		} else {
-    			puissance4 &= false;
+    			return false;
     		}
     	}
     	return puissance4;
     }
     
     public static boolean rechercheHorizontale(String[][] tableau, String couleur,int[] pionTest) {
-    	int[] pion = pionTest;
-    	boolean puissance4 = true;
+    	int[] pion = pionTest.clone();
+    	boolean puissance4 = false;
     	while(pion[0] != 0 && tableau[pion[0]-1][pion[1]].equals(couleur)) {
     		pion[0] -= 1;
     	}
     	for (int i = 0; i < 3 && pion[0]+1 <= 6;i ++) {
     		if (tableau[pion[0]+1][pion[1]].equals(couleur)) {
     			pion[0] += 1;
-    			puissance4 &= true;
+    			puissance4 = true;
     		} else {
-    			puissance4 &= false;
+    			return false;
     		}
     	}
     	return puissance4;
     }
     
     public static boolean rechercheDiagonaleBasDroiteHautGauche(String[][] tableau, String couleur,int[] pionTest) {
-    	int[] pion = pionTest;
-    	boolean puissance4 = true;
+    	int[] pion = pionTest.clone();
+    	boolean puissance4 = false;
     	while(pion[0] != 6 && pion[1] != 0 && tableau[pion[0]+1][pion[1]-1].equals(couleur)) {
     		pion[0] += 1;
     		pion[1] -= 1;
@@ -84,9 +86,9 @@ public class RecherchePuissance4 {
     		if (tableau[pion[0]-1][pion[1]+1].equals(couleur)) {
     			pion[0] -= 1;
     			pion[1] += 1;
-    			puissance4 &= true;
+    			puissance4 = true;
     		} else {
-    			puissance4 &= false;
+    			return false;
     		}
     	}
     	return puissance4;

@@ -38,8 +38,6 @@ public class FichierExterne {
 		while (obj.hasNextLine()) {
 			sauvegarde += obj.nextLine();
 		}
-		System.out.println(sauvegarde);
-		
 		return sauvegarde;
 	}
 	
