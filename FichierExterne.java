@@ -9,9 +9,24 @@ import java.util.Scanner;
 
 public class FichierExterne {
 	
+	private static String couleur;
 	
-	public static boolean estSauvegardeExistante() throws IOException {
-		File file = new File("puissance4/info1/sae/sauvegarde.txt");
+	private static String joueur1;
+	
+	private static String joueur2;
+	
+	private static String[][] tableau  =  {
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""}};
+	
+	
+	public static boolean estSauvegardeExistanteJcj() throws IOException {
+		File file = new File("puissance4/info1/sae/sauvegardeJcj.txt");
 		if (file.length() != 0) {
 			return true;
 		} else {
@@ -19,34 +34,84 @@ public class FichierExterne {
 		}
 	}
 	
-	public static void sauvegarder(String couleur, String type, String nomJoueur, String[][] TableauCouleur) throws FileNotFoundException {
-		PrintWriter writer = new PrintWriter("puissance4/info1/sae/sauvegarde.txt");
-		writer.println(couleur + " " + type + " " + nomJoueur + " ");
+	public static boolean estSauvegardeExistanteJco() throws IOException {
+		File file = new File("puissance4/info1/sae/sauvegardeJco.txt");
+		if (file.length() != 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static void sauvegarderJcj(String couleur, String nomJoueur1, String nomJoueur2, String[][] TableauCouleur) throws FileNotFoundException {
+		PrintWriter writer = new PrintWriter("puissance4/info1/sae/sauvegardeJcj.txt");
+		writer.println(couleur);
+		writer.println(nomJoueur1);
+		writer.println(nomJoueur2);
 		for (int colonne = 0; colonne <= 6; colonne ++) {
 			for (int ligne = 0; ligne <= 4; ligne ++) {
 				writer.print(TableauCouleur[colonne][ligne] + " ");
 			}
-			writer.println(TableauCouleur[colonne][5] + " ");
+			writer.println(TableauCouleur[colonne][5] + "");
 		}
 		writer.close();
 	}
 	
-	public static String recupererDonneeSauvegarde() throws FileNotFoundException {
-		String sauvegarde = "";
-		File doc =new File("puissance4/info1/sae/sauvegarde.txt");
-		Scanner obj = new Scanner(doc);
-		while (obj.hasNextLine()) {
-			sauvegarde += obj.nextLine();
+	public static void sauvegarderJco(String couleur, String nomJoueur1, String[][] TableauCouleur) throws FileNotFoundException {
+		PrintWriter writer = new PrintWriter("puissance4/info1/sae/sauvegardeJco.txt");
+		writer.println(couleur);
+		writer.println(nomJoueur1);
+		for (int colonne = 0; colonne <= 6; colonne ++) {
+			for (int ligne = 0; ligne <= 4; ligne ++) {
+				writer.print(TableauCouleur[colonne][ligne] + " ");
+			}
+			writer.println(TableauCouleur[colonne][5] + "");
 		}
-		return sauvegarde;
+		writer.close();
 	}
 	
-	public static void creerFichierSauvegarde() throws IOException {
-		File file = new File("puissance4/info1/sae/sauvegarde.txt");
-		if (file.exists()) {
-			System.err.println("un fichier existe deja");
-		} else {
-			file.createNewFile();
+	public static void recupererDonneeSauvegardeJcj() throws FileNotFoundException {
+		String sauvegarde = "";
+		File doc =new File("puissance4/info1/sae/sauvegardeJcj.txt");
+		Scanner obj = new Scanner(doc);
+		couleur = obj.nextLine();
+		joueur1 = obj.nextLine();
+		joueur2 = obj.nextLine();
+		for (int i = 0; i < 7; i++) {
+			String colonne = obj.nextLine();
+	        tableau[i] = colonne.split(" ");
 		}
 	}
+	
+	public static void recupererDonneeSauvegardeJco() throws FileNotFoundException {
+		String sauvegarde = "";
+		File doc =new File("puissance4/info1/sae/sauvegardeJco.txt");
+		Scanner obj = new Scanner(doc);
+		couleur = obj.nextLine();
+		joueur1 = obj.nextLine();
+		for (int i = 0; i < 7; i++) {
+			String colonne = obj.nextLine();
+	        tableau[i] = colonne.split(" ");
+		}
+	}
+	
+	public static String getCouleur() {
+		return couleur;
+	}
+	
+	public static String getJoueur1() {
+		return joueur1;
+	}
+	
+	public static String getJoueur2() {
+		return joueur2;
+	}
+	
+	public static String[][] getTableau() {
+		return tableau;
+	}
+	
+	
+	
+	
 }
