@@ -46,7 +46,7 @@ public class RecherchePuissance4 {
     		pion[0] -= 1;
     		pion[1] -= 1;
     	}
-    	if (pion[0] < 5 && pion[1] < 4) {
+    	if (pion[0] < 4 && pion[1] < 3) {
     		puissance4 = tableau[pion[0]+1][pion[1]+1].equals(couleur);
 	    	puissance4 &= tableau[pion[0]+2][pion[1]+2].equals(couleur);
 	    	puissance4 &= tableau[pion[0]+3][pion[1]+3].equals(couleur);
@@ -61,7 +61,7 @@ public class RecherchePuissance4 {
     	while(pion[0] != 0 && tableau[pion[0]-1][pion[1]].equals(couleur)) {
     		pion[0] -= 1;
     	}
-    	if (pion[0] < 5) {
+    	if (pion[0] < 4) {
     		puissance4 = tableau[pion[0]+1][pion[1]].equals(couleur);
 	    	puissance4 &= tableau[pion[0]+2][pion[1]].equals(couleur);
 	    	puissance4 &= tableau[pion[0]+3][pion[1]].equals(couleur);
@@ -77,7 +77,7 @@ public class RecherchePuissance4 {
     		pion[0] += 1;
     		pion[1] -= 1;
     	}
-    	if (pion[0] > 3 && pion[1] < 4) {
+    	if (pion[0] > 2 && pion[1] < 3) {
     		puissance4 = tableau[pion[0]-1][pion[1]+1].equals(couleur);
 	    	puissance4 &= tableau[pion[0]-2][pion[1]+2].equals(couleur);
 	    	puissance4 &= tableau[pion[0]-3][pion[1]+3].equals(couleur);
