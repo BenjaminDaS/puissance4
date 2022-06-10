@@ -1,4 +1,4 @@
-package info1.sae;
+package application;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,7 +26,7 @@ public class FichierExterne {
 	
 	
 	public static boolean estSauvegardeExistanteJcj() throws IOException {
-		File file = new File("puissance4/info1/sae/sauvegardeJcj.txt");
+		File file = new File("sauvegardeJcj.txt");
 		if (file.length() != 0) {
 			return true;
 		} else {
@@ -35,7 +35,7 @@ public class FichierExterne {
 	}
 	
 	public static boolean estSauvegardeExistanteJco() throws IOException {
-		File file = new File("puissance4/info1/sae/sauvegardeJco.txt");
+		File file = new File("sauvegardeJco.txt");
 		if (file.length() != 0) {
 			return true;
 		} else {
@@ -44,12 +44,15 @@ public class FichierExterne {
 	}
 	
 	public static void sauvegarderJcj(String couleur, String nomJoueur1, String nomJoueur2, String[][] TableauCouleur) throws FileNotFoundException {
-		PrintWriter writer = new PrintWriter("puissance4/info1/sae/sauvegardeJcj.txt");
+		PrintWriter writer = new PrintWriter("sauvegardeJcj.txt");
 		writer.println(couleur);
 		writer.println(nomJoueur1);
 		writer.println(nomJoueur2);
 		for (int colonne = 0; colonne <= 6; colonne ++) {
 			for (int ligne = 0; ligne <= 4; ligne ++) {
+				if(TableauCouleur[colonne][ligne].equals("")) {
+					TableauCouleur[colonne][ligne] = "vide";
+				}
 				writer.print(TableauCouleur[colonne][ligne] + " ");
 			}
 			writer.println(TableauCouleur[colonne][5] + "");
@@ -58,11 +61,14 @@ public class FichierExterne {
 	}
 	
 	public static void sauvegarderJco(String couleur, String nomJoueur1, String[][] TableauCouleur) throws FileNotFoundException {
-		PrintWriter writer = new PrintWriter("puissance4/info1/sae/sauvegardeJco.txt");
+		PrintWriter writer = new PrintWriter("sauvegardeJco.txt");
 		writer.println(couleur);
 		writer.println(nomJoueur1);
 		for (int colonne = 0; colonne <= 6; colonne ++) {
 			for (int ligne = 0; ligne <= 4; ligne ++) {
+				if(TableauCouleur[colonne][ligne].equals("")) {
+					TableauCouleur[colonne][ligne] = "vide";
+				}
 				writer.print(TableauCouleur[colonne][ligne] + " ");
 			}
 			writer.println(TableauCouleur[colonne][5] + "");
@@ -72,7 +78,7 @@ public class FichierExterne {
 	
 	public static void recupererDonneeSauvegardeJcj() throws FileNotFoundException {
 		String sauvegarde = "";
-		File doc =new File("puissance4/info1/sae/sauvegardeJcj.txt");
+		File doc =new File("sauvegardeJcj.txt");
 		Scanner obj = new Scanner(doc);
 		couleur = obj.nextLine();
 		joueur1 = obj.nextLine();
@@ -85,7 +91,7 @@ public class FichierExterne {
 	
 	public static void recupererDonneeSauvegardeJco() throws FileNotFoundException {
 		String sauvegarde = "";
-		File doc =new File("puissance4/info1/sae/sauvegardeJco.txt");
+		File doc =new File("sauvegardeJco.txt");
 		Scanner obj = new Scanner(doc);
 		couleur = obj.nextLine();
 		joueur1 = obj.nextLine();

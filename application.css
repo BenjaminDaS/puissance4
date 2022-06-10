@@ -1,0 +1,105 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+
+.pane {
+    -fx-background-color : #EEEEEE;
+}
+
+.titletxt {
+	-fx-color : white;
+	-fx-font-family: 'Roboto', sans-serif;
+	-fx-font-size: 1.5em;
+}
+
+.txt {
+	-fx-font-family: 'Roboto', sans-serif;
+      -fx-font-weight: 400;
+      -fx-font-size: 46px;
+}
+
+.hbsquare {
+	-fx-background-color: rgba(197, 164, 164, 0.19);
+      -fx-border-color : #000000;
+	-fx-border-width: 2px;
+	-fx-border-radius: 10px;
+}
+
+
+.buttonFrontPage {
+      -fx-background-color: #EEEEEE;
+      -fx-background-radius: 10px;
+      -fx-border-color : #0038FF;
+	-fx-border-width: 2px;
+	-fx-border-radius: 10px;
+      -fx-cursor: pointer;
+}
+
+.buttonFrontPage:hover {
+      -fx-background-color: #6b5fff;
+      -fx-text-fill: white;
+}
+
+.buttonPlay {
+      -fx-background-color: #EEEEEE;
+      -fx-background-radius: 10px;
+      -fx-border-color : #0038FF;
+	-fx-border-width: 4px;
+	-fx-border-radius: 10px;
+      -fx-cursor: pointer;
+}
+
+.buttonPlay:hover {
+      -fx-background-color: #6b5fff;
+      -fx-text-fill: white;
+}
+
+.textfiel {
+      -fx-background-radius: 10px;
+      -fx-border-color : #0038FF;
+	-fx-border-width: 2px;
+	-fx-border-radius: 10px;
+      -fx-font-size: 15pt;
+}
+
+.textfiel:focused {
+	-fx-background-color : #EEEEEE;
+}
+
+.grid {
+      -fx-background-color : #000aff;
+      -fx-background-radius: 10px;
+}
+
+
+.help {
+  -fx-display:block;
+  -fx-height: 150px;
+  -fx-width: 150px;
+  -fx-border-radius: 50%;
+  -fx-color: blue;
+}
+
+.helpgrid {
+    -fx-background-image: url("helpgrid.PNG");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-border-radius: 30px;
+}
+
+.here{
+}
+
+.here:hover{
+	-fx-background-color: white;
+      
+}
+
+.buttonGame {
+      -fx-background-color: #EEEEEE;
+      -fx-background-radius: 4px;
+      -fx-border-color : black;
+	-fx-border-width: 2px;
+	-fx-border-radius: 4px;
+      -fx-cursor: pointer;
+}

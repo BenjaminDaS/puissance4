@@ -1,4 +1,4 @@
-package info1.sae;
+package application;
 
 public class RecherchePuissance4 {
 	/** recherche à chaque tour via un import de cette méthode si le jeu possède 

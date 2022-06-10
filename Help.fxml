@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneControler">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="474.0" prefWidth="697.0">
+         <children>
+            <AnchorPane layoutX="-10.0" layoutY="-10.0" prefHeight="484.0" prefWidth="673.0" styleClass="pane" stylesheets="@../../bin/application/application.css">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000c7" height="449.0" layoutX="84.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="554.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="18.0" />
+                  <Text fill="WHITE" layoutX="248.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titletxt" text="Le jaune a gagné" textAlignment="CENTER" wrappingWidth="213.1533203125" />
+                  <Text fill="WHITE" layoutX="108.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour gagner une partie de puissance 4, il suffit d'être le premier à aligner 4 jetons de sa couleur horizontalement, verticalement et diagonalement. Si lors d'une partie, tous les jetons sont joués sans qu'il n’y est d'alignement de jetons, la partie est déclarée nulle. Pour placer les jetons cliquez sur la colonne où vous souhaitez poser votre jeton lorsque c’est votre tour. Le tour étant afficher en bas." wrappingWidth="529.517578125">
+                     <font>
+                        <Font name="Bodoni MT" size="22.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="268.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../bin/application/helpPuis.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="108.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titletxt" text="Règle du puissance 4 :" textAlignment="CENTER" wrappingWidth="228.1533203125" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

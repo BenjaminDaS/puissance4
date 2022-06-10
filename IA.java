@@ -1,11 +1,10 @@
-package info1.sae;
-import java.util.ArrayList;
+package application;
 
-import application.Tache;
-import info1.sae.RecherchePuissance4;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class IA {
+	
 	public static int[] pionIA(String[][] tableau) {
 		int[] pion = {0,0};
 		int[] pionRandom = {0,0};
